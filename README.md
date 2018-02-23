@@ -1,6 +1,6 @@
 # Ansible Role - Packer
 
-This role installs Hashicorp's Packer application.
+This role installs Hashicorp's [Packer](https://www.packer.io) application.
 
 ## Requirements
 

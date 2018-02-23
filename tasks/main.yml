@@ -5,14 +5,19 @@
     state: "present"
   with_items: "{{ packer_required_packages }}"
 
+- name: "Create the download directory"
+  file:
+    path: "{{ packer_archive_dir }}"
+    state: "directory"
+
 - name: Download and unarchive application
   unarchive:
     src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
-    dest: "{{ packer_bin_dir }}"
+    dest: "{{ packer_archive_dir }}"
     remote_src: true
-    creates: "{{ packer_bin_path }}"
+    creates: "{{ packer_archive_path }}"
 
 - name: Create exec symlink to downloaded version
   file:
-    src: "{{ packer_bin_path }}"
+    src: "{{ packer_archive_path }}"
     dest: "{{ packer_link_path }}"

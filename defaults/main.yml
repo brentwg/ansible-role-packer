@@ -5,6 +5,6 @@ packer_required_packages:
 
 packer_version: "1.2.0"
 packer_arch: "amd64"
-packer_bin_dir: "/usr/local/packer/{{ packer_version }}"
-packer_bin_path: "{{ packer_bin_dir }}/packer"
+packer_archive_dir: "/usr/local/packer-{{ packer_version }}"
+packer_archive_path: "{{ packer_archive_dir }}/packer"
 packer_link_path: /usr/local/bin/packer

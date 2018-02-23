@@ -21,3 +21,4 @@
   file:
     src: "{{ packer_archive_path }}"
     dest: "{{ packer_link_path }}"
+    state: "link"

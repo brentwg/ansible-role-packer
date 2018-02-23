@@ -1,0 +1,18 @@
+---
+- name: Ensure required packages are installed
+  package:
+    name: "{{ item }}"
+    state: "present"
+  with_items: "{{ packer_required_packages }}"
+
+- name: Download and unarchive application
+  unarchive:
+    src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
+    dest: "{{ packer_bin_path }}/packer-{{ packer_version }}"
+    remote_src: true
+    creates: "{{ packer_bin_path }}/packer-{{ packer_version }}"
+
+- name: Create symlink to downloaded version
+  file:
+    src: "{{ packer_bin_path }}/packer-{{ packer_version }}"
+    dest: "{{ packer_bin_path }}/packer"

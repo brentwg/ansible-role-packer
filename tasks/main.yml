@@ -8,11 +8,11 @@
 - name: Download and unarchive application
   unarchive:
     src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
-    dest: "{{ packer_bin_path }}/packer-{{ packer_version }}"
+    dest: "{{ packer_bin_dir }}"
     remote_src: true
-    creates: "{{ packer_bin_path }}/packer-{{ packer_version }}"
+    creates: "{{ packer_bin_path }}"
 
-- name: Create symlink to downloaded version
+- name: Create exec symlink to downloaded version
   file:
-    src: "{{ packer_bin_path }}/packer-{{ packer_version }}"
-    dest: "{{ packer_bin_path }}/packer"
+    src: "{{ packer_bin_path }}"
+    dest: "{{ packer_link_path }}"

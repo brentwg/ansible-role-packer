@@ -24,7 +24,7 @@ The system architecture that you are using (eg. `386` or `amd64`).
 
 The installation path is:  
 ```
-/usr/local/packer-{{ packer_version }}/packer
+/usr/local/packer/{{ packer_version }}/packer
 ```  
 
 And the symlink to the specified version is created here:  
